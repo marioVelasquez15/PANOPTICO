@@ -1,0 +1,2643 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EL UMBRAL // Archivo 01</title>
+
+<style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #170303 0%,
+            #080000 45%,
+            #000000 100%
+        );
+
+    background-attachment: fixed;
+
+    color: #e8e8e8;
+
+    font-family:
+        Verdana,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    min-height: 100vh;
+
+}
+
+
+/* Textura oscura */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.15;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(255,255,255,0.025) 3px,
+            transparent 4px
+        );
+
+    z-index: 999;
+
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.top-bar {
+
+    height: 26px;
+
+    background: #050000;
+
+    border-bottom: 1px solid #4d0808;
+
+    color: #8c7777;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 12px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.site-wrapper {
+
+    width: 960px;
+
+    margin: 20px auto 50px;
+
+    background: #080303;
+
+    border: 1px solid #551010;
+
+    box-shadow:
+
+        0 0 0 4px #020000,
+
+        0 0 25px rgba(80,0,0,0.7),
+
+        0 0 80px rgba(40,0,0,0.5);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    min-height: 160px;
+
+    padding: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            ellipse at 40% 50%,
+            #300808,
+            #100202 55%,
+            #030000 100%
+        );
+
+    border-bottom: 1px solid #691313;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* Línea roja decorativa */
+
+header::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 55%;
+
+    height: 2px;
+
+    background: #8c1111;
+
+    box-shadow: 0 0 12px #8c1111;
+
+}
+
+
+.header-logo {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.small-text {
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    color: #a94a4a;
+
+    letter-spacing: 5px;
+
+}
+
+
+.header-logo h1 {
+
+    margin: 3px 0 5px;
+
+    font-family:
+
+        "Times New Roman",
+
+        Times,
+
+        serif;
+
+    font-size: 54px;
+
+    font-weight: normal;
+
+    letter-spacing: 9px;
+
+    color: #f0eeee;
+
+    text-shadow:
+
+        2px 2px 0 #000,
+
+        0 0 10px #6d0b0b,
+
+        0 0 25px rgba(130,0,0,0.7);
+
+}
+
+
+.subtitle {
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 12px;
+
+    color: #8c7777;
+
+}
+
+
+.header-status {
+
+    width: 150px;
+
+    padding: 13px;
+
+    text-align: center;
+
+    background: #080000;
+
+    border: 1px solid #681212;
+
+    color: #9c7777;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    box-shadow:
+
+        inset 0 0 15px #000,
+
+        0 0 8px rgba(100,0,0,0.3);
+
+}
+
+
+.header-status .red {
+
+    color: #c92727;
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    background: #0b0202;
+
+    border-bottom: 1px solid #581010;
+
+}
+
+
+nav a {
+
+    flex: 1;
+
+    padding: 11px 5px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #a38a8a;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    border-right: 1px solid #351010;
+
+    background:
+
+        linear-gradient(
+            #250909,
+            #0b0101
+        );
+
+    transition: 0.15s;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            #651313,
+            #220404
+        );
+
+    text-shadow:
+
+        0 0 6px #ff4444;
+
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+
+    height: 25px;
+
+    overflow: hidden;
+
+    background: #020000;
+
+    border-bottom: 1px solid #3d0808;
+
+    white-space: nowrap;
+
+    color: #8e3939;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+}
+
+
+#marqueeText {
+
+    display: inline-block;
+
+    padding-left: 100%;
+
+    line-height: 25px;
+
+    animation:
+
+        marquee 22s linear infinite;
+
+}
+
+
+@keyframes marquee {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(-100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+main {
+
+    display: grid;
+
+    grid-template-columns: 1fr 220px;
+
+    gap: 15px;
+
+    padding: 15px;
+
+}
+
+
+/* =========================================================
+   VENTANA PRINCIPAL
+========================================================= */
+
+.window {
+
+    margin-bottom: 15px;
+
+    border: 1px solid #651111;
+
+    background: #050000;
+
+    box-shadow:
+
+        inset 0 0 25px rgba(90,0,0,0.15);
+
+}
+
+
+.window-title {
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6px;
+
+    background:
+
+        linear-gradient(
+            #4a0c0c,
+            #190303
+        );
+
+    border-bottom: 1px solid #751414;
+
+    color: #e5dede;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+}
+
+
+.window-buttons {
+
+    display: flex;
+
+    gap: 3px;
+
+}
+
+
+.window-buttons button {
+
+    width: 18px;
+
+    height: 17px;
+
+    padding: 0;
+
+    background: #1c0505;
+
+    color: #d7baba;
+
+    border: 1px solid #6d1b1b;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   BIENVENIDA
+========================================================= */
+
+.window-content {
+
+    padding: 35px 25px;
+
+    min-height: 245px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #210505,
+            #070000 70%
+        );
+
+}
+
+
+.welcome {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.ascii-title {
+
+    color: #7c2929;
+
+    font-family: "Courier New", monospace;
+
+    line-height: 1.5;
+
+    margin-bottom: 22px;
+
+}
+
+
+.welcome h2 {
+
+    margin: 0 0 12px;
+
+    color: #eee;
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    font-size: 26px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.welcome p {
+
+    max-width: 500px;
+
+    margin: 8px auto;
+
+    color: #917b7b;
+
+    line-height: 1.7;
+
+}
+
+
+.enter-button {
+
+    margin-top: 18px;
+
+    padding: 9px 30px;
+
+    color: #eee;
+
+    background:
+
+        linear-gradient(
+            #641212,
+            #260404
+        );
+
+    border: 1px solid #9b2929;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 0 8px rgba(120,0,0,0.35),
+
+        inset 0 0 8px #150000;
+
+}
+
+
+.enter-button:hover {
+
+    background:
+
+        linear-gradient(
+            #8d1919,
+            #350505
+        );
+
+    color: white;
+
+    box-shadow:
+
+        0 0 15px rgba(170,0,0,0.5);
+
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.section-box {
+
+    margin-bottom: 15px;
+
+    border: 1px solid #551010;
+
+    background: #080202;
+
+}
+
+
+.section-header {
+
+    padding: 8px 10px;
+
+    background:
+
+        linear-gradient(
+            #350909,
+            #130202
+        );
+
+    border-bottom: 1px solid #5c1111;
+
+    color: #c48b8b;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+.section-content {
+
+    padding: 20px;
+
+    line-height: 1.8;
+
+}
+
+
+.section-content h2 {
+
+    margin-top: 0;
+
+    color: #eee;
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    font-size: 24px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-content p {
+
+    color: #a38c8c;
+
+}
+
+
+.highlight {
+
+    padding: 14px;
+
+    margin-top: 20px;
+
+    border-left: 3px solid #8c1717;
+
+    background: #150303;
+
+    color: #d3bcbc !important;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   REPRODUCTOR
+========================================================= */
+
+.fake-player {
+
+    border: 1px solid #551010;
+
+    background: #000;
+
+}
+
+
+.player-screen {
+
+    height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            #1a0303,
+            #020000
+        );
+
+    color: #541414;
+
+    font-family: "Courier New", monospace;
+
+    position: relative;
+
+}
+
+
+.player-screen::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(150,0,0,0.025) 4px
+        );
+
+}
+
+
+.player-screen span {
+
+    font-size: 25px;
+
+    letter-spacing: 6px;
+
+    z-index: 2;
+
+}
+
+
+.player-screen small {
+
+    margin-top: 12px;
+
+    color: #351010;
+
+    z-index: 2;
+
+}
+
+
+.player-controls {
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 10px;
+
+    background: #100202;
+
+    border-top: 1px solid #441010;
+
+}
+
+
+.player-controls button {
+
+    width: 28px;
+
+    height: 25px;
+
+    background: #260606;
+
+    color: #d9bebe;
+
+    border: 1px solid #681515;
+
+    cursor: pointer;
+
+}
+
+
+.player-controls button:hover {
+
+    background: #641212;
+
+}
+
+
+.progress {
+
+    flex: 1;
+
+    height: 7px;
+
+    background: #050000;
+
+    border: 1px solid #421010;
+
+}
+
+
+#progressBar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #8e1818;
+
+    box-shadow: 0 0 5px #8e1818;
+
+}
+
+
+#timeDisplay {
+
+    font-family: "Courier New", monospace;
+
+    color: #754b4b;
+
+    font-size: 9px;
+
+}
+
+
+.under-player {
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    color: #693434 !important;
+
+}
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+}
+
+
+td {
+
+    padding: 9px;
+
+    border: 1px solid #351010;
+
+}
+
+
+td:first-child {
+
+    width: 35%;
+
+    background: #130303;
+
+    color: #794c4c;
+
+    font-weight: bold;
+
+}
+
+
+td:last-child {
+
+    color: #bfa9a9;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.side-box {
+
+    margin-bottom: 15px;
+
+    border: 1px solid #511010;
+
+    background: #070101;
+
+}
+
+
+.side-title {
+
+    padding: 8px;
+
+    background:
+
+        linear-gradient(
+            #350909,
+            #130202
+        );
+
+    border-bottom: 1px solid #551010;
+
+    color: #bd8585;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+}
+
+
+.side-box > a {
+
+    display: block;
+
+    padding: 9px;
+
+    color: #846c6c;
+
+    border-bottom: 1px solid #240909;
+
+    text-decoration: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+}
+
+
+.side-box > a:hover {
+
+    background: #250606;
+
+    color: #eee;
+
+    padding-left: 13px;
+
+}
+
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
+.status {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    align-items: center;
+
+    font-family: "Courier New", monospace;
+
+    color: #8b7070;
+
+}
+
+
+.status-light {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #a71818;
+
+    box-shadow:
+
+        0 0 7px #b51d1d;
+
+}
+
+
+.status small {
+
+    color: #503737;
+
+    font-size: 8px;
+
+}
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+.stats {
+
+    padding: 10px;
+
+}
+
+
+.stats div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 7px 0;
+
+    border-bottom: 1px dotted #321010;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+}
+
+
+.stats span {
+
+    color: #684848;
+
+}
+
+
+.stats strong {
+
+    color: #a78a8a;
+
+}
+
+
+/* =========================================================
+   LIBRO DE VISITAS
+========================================================= */
+
+.guestbook {
+
+    text-align: center;
+
+    padding-bottom: 12px;
+
+}
+
+
+.guestbook p {
+
+    color: #765858;
+
+}
+
+
+.guestbook button {
+
+    padding: 6px 10px;
+
+    background: #210505;
+
+    border: 1px solid #671414;
+
+    color: #b99797;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+}
+
+
+.guestbook button:hover {
+
+    background: #5b1010;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge {
+
+    width: 105px;
+
+    height: 70px;
+
+    margin: 15px auto;
+
+    border: 2px solid #601414;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #2b0707,
+            #060000
+        );
+
+    text-align: center;
+
+    padding-top: 7px;
+
+    box-shadow:
+
+        inset 0 0 15px #000,
+
+        0 0 8px rgba(100,0,0,0.3);
+
+}
+
+
+.badge span {
+
+    display: block;
+
+    font-size: 8px;
+
+    color: #7f4141;
+
+}
+
+
+.badge strong {
+
+    font-family: "Arial Black", Arial;
+
+    color: #b99393;
+
+    font-size: 14px;
+
+    line-height: 15px;
+
+}
+
+
+.tiny {
+
+    padding: 10px;
+
+    text-align: center;
+
+    color: #4d3030;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.contact-section {
+
+    margin: 0 15px 15px;
+
+    border: 1px solid #551010;
+
+    background: #080202;
+
+}
+
+
+.contact-content {
+
+    padding: 20px;
+
+    text-align: center;
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+.email {
+
+    color: #b88b8b;
+
+    font-size: 13px;
+
+    text-decoration: underline;
+
+}
+
+
+.social-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.social-links a {
+
+    color: #885f5f;
+
+    text-decoration: none;
+
+    padding: 5px;
+
+    border: 1px solid #481010;
+
+}
+
+
+.social-links a:hover {
+
+    color: white;
+
+    background: #3a0808;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #030000;
+
+    border-top: 1px solid #481010;
+
+    color: #513333;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+
+.footer-line {
+
+    color: #2d1010;
+
+}
+
+
+.footer-buttons {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 5px;
+
+}
+
+
+.footer-buttons span {
+
+    padding: 2px 5px;
+
+    border: 1px solid #2c0c0c;
+
+    color: #563333;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0,0,0,0.85);
+
+    z-index: 1000;
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+.modal-window {
+
+    width: 380px;
+
+    border: 1px solid #791717;
+
+    background: #0b0202;
+
+    box-shadow:
+
+        0 0 30px rgba(130,0,0,0.4);
+
+}
+
+
+.modal-content {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #ad9292;
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+.modal-content button {
+
+    padding: 7px 20px;
+
+    background: #260606;
+
+    border: 1px solid #681515;
+
+    color: #c9aaaa;
+
+    cursor: pointer;
+
+}
+
+
+.modal-content button:hover {
+
+    background: #641212;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+
+    .site-wrapper {
+
+        width: 95%;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .site-wrapper {
+
+        width: 100%;
+
+        margin: 0;
+
+        border-left: 0;
+
+        border-right: 0;
+
+    }
+
+
+    header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+
+    }
+
+
+    .header-logo h1 {
+
+        font-size: 35px;
+
+        letter-spacing: 5px;
+
+    }
+
+
+    main {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    nav {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    nav a {
+
+        flex: 1 1 33%;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BARRA SUPERIOR
+===================================================== -->
+
+<div class="top-bar">
+
+    <span>
+        ★ ARCHIVO DIGITAL // SITIO OFICIAL ★
+    </span>
+
+    <span id="clock">
+        00:00:00
+    </span>
+
+</div>
+
+
+
+<!-- =====================================================
+     SITIO
+===================================================== -->
+
+<div class="site-wrapper">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="header-logo">
+
+        <div class="small-text">
+            CORTOMETRAJE
+        </div>
+
+        <h1>
+            EL UMBRAL
+        </h1>
+
+        <div class="subtitle">
+            Algunas cosas deberían permanecer enterradas.
+        </div>
+
+    </div>
+
+
+    <div class="header-status">
+
+        <div>
+            <span class="red">●</span>
+            SITIO OFICIAL
+        </div>
+
+        <br>
+
+        <div>
+            ARCHIVO 01
+        </div>
+
+        <br>
+
+        <div>
+            ESTADO:
+            <span class="red">
+                ONLINE
+            </span>
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
+
+<nav>
+
+    <a href="#inicio">
+        INICIO
+    </a>
+
+    <a href="#sinopsis">
+        SINOPSIS
+    </a>
+
+    <a href="#pelicula">
+        LA PELÍCULA
+    </a>
+
+    <a href="#ficha">
+        FICHA TÉCNICA
+    </a>
+
+    <a href="#contacto">
+        CONTACTO
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+    <div id="marqueeText">
+
+        ★ EL UMBRAL ★ CORTOMETRAJE DE HORROR PSICOLÓGICO ★
+        ARCHIVO 01 ★ PRÓXIMAMENTE ★
+        ALGUNAS MEMORIAS NUNCA DESAPARECEN ★
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
+
+<main id="inicio">
+
+
+<!-- =====================================================
+     COLUMNA PRINCIPAL
+===================================================== -->
+
+<section>
+
+
+<!-- VENTANA DE BIENVENIDA -->
+
+<div class="window">
+
+    <div class="window-title">
+
+        <span>
+            EL_UMBRAL.EXE
+        </span>
+
+        <div class="window-buttons">
+
+            <button>_</button>
+
+            <button>□</button>
+
+            <button>×</button>
+
+        </div>
+
+    </div>
+
+
+    <div class="window-content">
+
+        <div class="welcome">
+
+            <div class="ascii-title">
+
+                +--------------------------------+
+                <br>
+
+                | &nbsp;&nbsp;&nbsp; ARCHIVO ENCONTRADO &nbsp;&nbsp;&nbsp; |
+                <br>
+
+                +--------------------------------+
+
+            </div>
+
+
+            <h2>
+                EL UMBRAL
+            </h2>
+
+
+            <p>
+                Bienvenido al archivo oficial del cortometraje.
+            </p>
+
+
+            <p>
+                Algunas historias no terminan cuando despiertas.
+            </p>
+
+
+            <button
+                class="enter-button"
+                id="enterButton"
+            >
+                [ ABRIR ARCHIVO ]
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SINOPSIS
+===================================================== -->
+
+<div
+    class="section-box"
+    id="sinopsis"
+>
+
+    <div class="section-header">
+
+        :: 01 // SINOPSIS ::
+
+    </div>
+
+
+    <div class="section-content">
+
+        <h2>
+            EL UMBRAL
+        </h2>
+
+
+        <p>
+            David ha pasado gran parte de su vida intentando
+            controlar todo aquello que teme perder.
+        </p>
+
+
+        <p>
+            Después de una serie de acontecimientos que destruyen
+            su familia, se ve obligado a enfrentarse con los
+            recuerdos que durante años intentó mantener enterrados.
+        </p>
+
+
+        <p>
+            En un espacio donde los límites entre la memoria,
+            la culpa y la realidad comienzan a desaparecer,
+            David deberá recorrer los lugares más oscuros
+            de su propia mente.
+        </p>
+
+
+        <p class="highlight">
+
+            ¿Hasta dónde puede llegar una persona para escapar
+            de aquello que lleva dentro?
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PELÍCULA
+===================================================== -->
+
+<div
+    class="section-box"
+    id="pelicula"
+>
+
+    <div class="section-header">
+
+        :: 02 // LA PELÍCULA ::
+
+    </div>
+
+
+    <div class="section-content">
+
+
+        <div class="fake-player">
+
+
+            <div class="player-screen">
+
+                <span>
+                    NO SIGNAL
+                </span>
+
+                <small>
+                    EL UMBRAL // TRAILER
+                </small>
+
+            </div>
+
+
+            <div class="player-controls">
+
+                <button id="playButton">
+                    ▶
+                </button>
+
+
+                <div class="progress">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+
+                <span id="timeDisplay">
+                    00:00
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p class="under-player">
+
+            &gt;&gt; ARCHIVO DE VIDEO NO DISPONIBLE
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FICHA TÉCNICA
+===================================================== -->
+
+<div
+    class="section-box"
+    id="ficha"
+>
+
+    <div class="section-header">
+
+        :: 03 // FICHA TÉCNICA ::
+
+    </div>
+
+
+    <div class="section-content">
+
+        <table>
+
+            <tr>
+
+                <td>
+                    DIRECTOR
+                </td>
+
+                <td>
+                    Carlos Mario Velásquez Ferreira
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    GÉNERO
+                </td>
+
+                <td>
+                    Horror psicológico / Drama
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    DURACIÓN
+                </td>
+
+                <td>
+                    XX minutos
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    PAÍS
+                </td>
+
+                <td>
+                    Colombia
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    AÑO
+                </td>
+
+                <td>
+                    2026
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    FOTOGRAFÍA
+                </td>
+
+                <td>
+                    Por definir
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    MONTAJE
+                </td>
+
+                <td>
+                    Por definir
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    PRODUCCIÓN
+                </td>
+
+                <td>
+                    Por definir
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside>
+
+
+<div class="side-box">
+
+    <div class="side-title">
+
+        :: NAVEGACIÓN ::
+
+    </div>
+
+
+    <a href="#inicio">
+        » Página principal
+    </a>
+
+
+    <a href="#sinopsis">
+        » Sinopsis
+    </a>
+
+
+    <a href="#pelicula">
+        » La película
+    </a>
+
+
+    <a href="#ficha">
+        » Ficha técnica
+    </a>
+
+
+    <a href="#contacto">
+        » Contacto
+    </a>
+
+</div>
+
+
+
+<div class="side-box">
+
+    <div class="side-title">
+
+        :: ESTADO DEL ARCHIVO ::
+
+    </div>
+
+
+    <div class="status">
+
+        <div class="status-light"></div>
+
+
+        <span>
+
+            ARCHIVO ONLINE
+
+            <br>
+
+            <small>
+                Última actualización:
+                06/10/2026
+            </small>
+
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="side-box">
+
+    <div class="side-title">
+
+        :: ESTADÍSTICAS ::
+
+    </div>
+
+
+    <div class="stats">
+
+        <div>
+
+            <span>
+                VISITANTES
+            </span>
+
+            <strong id="visitorCounter">
+                000421
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                ARCHIVOS
+            </span>
+
+            <strong>
+                01
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                VERSIÓN
+            </span>
+
+            <strong>
+                1.0
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                RESOLUCIÓN
+            </span>
+
+            <strong>
+                1024×768
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="side-box guestbook">
+
+    <div class="side-title">
+
+        :: LIBRO DE VISITAS ::
+
+    </div>
+
+
+    <p>
+
+        ¿Has estado aquí antes?
+
+    </p>
+
+
+    <button id="guestbookButton">
+
+        [ FIRMAR ARCHIVO ]
+
+    </button>
+
+</div>
+
+
+
+<div class="side-box">
+
+    <div class="side-title">
+
+        :: CLASIFICACIÓN ::
+
+    </div>
+
+
+    <div class="badge">
+
+        <span>
+            RECOMENDADO
+        </span>
+
+        <strong>
+            HORROR<br>
+            PSICOLÓGICO
+        </strong>
+
+    </div>
+
+
+    <p class="tiny">
+
+        Este sitio está diseñado
+        para una experiencia
+        óptima a 1024×768.
+
+    </p>
+
+</div>
+
+
+</aside>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section
+    class="contact-section"
+    id="contacto"
+>
+
+    <div class="section-header">
+
+        :: 04 // CONTACTO ::
+
+    </div>
+
+
+    <div class="contact-content">
+
+        <p>
+            Para información sobre el cortometraje:
+        </p>
+
+
+        <p class="email">
+            elumbral@ejemplo.com
+        </p>
+
+
+        <div class="social-links">
+
+            <a href="#">
+                [ FACEBOOK ]
+            </a>
+
+            <a href="#">
+                [ YOUTUBE ]
+            </a>
+
+            <a href="#">
+                [ INSTAGRAM ]
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+
+        © 2026 EL UMBRAL —
+        TODOS LOS DERECHOS RESERVADOS
+
+    </div>
+
+
+    <div class="footer-line">
+
+        ---------------------------------------------
+
+    </div>
+
+
+    <div>
+
+        ARCHIVO DIGITAL // SITIO OFICIAL
+
+    </div>
+
+
+    <div class="footer-buttons">
+
+        <span>
+            HTML
+        </span>
+
+        <span>
+            CSS
+        </span>
+
+        <span>
+            1024×768
+        </span>
+
+        <span>
+            ONLINE
+        </span>
+
+    </div>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-window">
+
+
+        <div class="window-title">
+
+            <span>
+                SISTEMA // MENSAJE
+            </span>
+
+
+            <button
+                id="closeModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-content">
+
+            <p>
+                ARCHIVO ENCONTRADO.
+            </p>
+
+
+            <p>
+                El contenido todavía se encuentra
+                en proceso de recuperación.
+            </p>
+
+
+            <p>
+                Algunas cosas deberían permanecer
+                enterradas.
+            </p>
+
+
+            <button
+                id="modalOk"
+            >
+                [ ACEPTAR ]
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   RELOJ
+===================================================== */
+
+function updateClock() {
+
+    const now = new Date();
+
+
+    const hours =
+        String(now.getHours())
+        .padStart(2, "0");
+
+
+    const minutes =
+        String(now.getMinutes())
+        .padStart(2, "0");
+
+
+    const seconds =
+        String(now.getSeconds())
+        .padStart(2, "0");
+
+
+    document.getElementById("clock").textContent =
+        hours + ":" +
+        minutes + ":" +
+        seconds;
+
+}
+
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+
+
+/* =====================================================
+   CONTADOR DE VISITAS
+===================================================== */
+
+let visits =
+    localStorage.getItem("elUmbralVisits");
+
+
+if (!visits) {
+
+    visits = 421;
+
+} else {
+
+    visits =
+        parseInt(visits) + 1;
+
+}
+
+
+localStorage.setItem(
+    "elUmbralVisits",
+    visits
+);
+
+
+document.getElementById(
+    "visitorCounter"
+).textContent =
+    String(visits).padStart(6, "0");
+
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+const modal =
+    document.getElementById("modal");
+
+
+const enterButton =
+    document.getElementById("enterButton");
+
+
+const guestbookButton =
+    document.getElementById("guestbookButton");
+
+
+const closeModal =
+    document.getElementById("closeModal");
+
+
+const modalOk =
+    document.getElementById("modalOk");
+
+
+
+function openModal() {
+
+    modal.classList.add("active");
+
+}
+
+
+function closeModalWindow() {
+
+    modal.classList.remove("active");
+
+}
+
+
+enterButton.addEventListener(
+    "click",
+    openModal
+);
+
+
+guestbookButton.addEventListener(
+    "click",
+    openModal
+);
+
+
+closeModal.addEventListener(
+    "click",
+    closeModalWindow
+);
+
+
+modalOk.addEventListener(
+    "click",
+    closeModalWindow
+);
+
+
+
+/* =====================================================
+   REPRODUCTOR FALSO
+===================================================== */
+
+const playButton =
+    document.getElementById("playButton");
+
+
+const progressBar =
+    document.getElementById("progressBar");
+
+
+const timeDisplay =
+    document.getElementById("timeDisplay");
+
+
+let playing = false;
+
+let progress = 0;
+
+let playerInterval;
+
+
+
+playButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (!playing) {
+
+            playing = true;
+
+            playButton.textContent = "Ⅱ";
+
+
+            playerInterval =
+                setInterval(
+                    function() {
+
+
+                        progress += 0.5;
+
+
+                        if (progress >= 100) {
+
+                            progress = 0;
+
+                        }
+
+
+                        progressBar.style.width =
+                            progress + "%";
+
+
+                        const totalSeconds =
+                            Math.floor(
+                                progress * 0.6
+                            );
+
+
+                        const minutes =
+                            String(
+                                Math.floor(
+                                    totalSeconds / 60
+                                )
+                            ).padStart(2, "0");
+
+
+                        const seconds =
+                            String(
+                                totalSeconds % 60
+                            ).padStart(2, "0");
+
+
+                        timeDisplay.textContent =
+                            minutes +
+                            ":" +
+                            seconds;
+
+
+                    },
+                    100
+                );
+
+
+        } else {
+
+
+            playing = false;
+
+            playButton.textContent = "▶";
+
+            clearInterval(
+                playerInterval
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CERRAR MODAL HACIENDO CLICK AFUERA
+===================================================== */
+
+modal.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === modal) {
+
+            closeModalWindow();
+
+        }
+
+    }
+);
+
+
+</script>
+
+
+</body>
+</html>
+```
