@@ -1,2643 +1,1218 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>EL UMBRAL // Archivo 01</title>
-
-<style>
-
-/* =========================================================
-   CONFIGURACIÓN GENERAL
-========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    margin: 0;
-    padding: 0;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            #170303 0%,
-            #080000 45%,
-            #000000 100%
-        );
-
-    background-attachment: fixed;
-
-    color: #e8e8e8;
-
-    font-family:
-        Verdana,
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 12px;
-
-    min-height: 100vh;
-
-}
-
-
-/* Textura oscura */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: 0.15;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 2px,
-            rgba(255,255,255,0.025) 3px,
-            transparent 4px
-        );
-
-    z-index: 999;
-
-}
-
-
-/* =========================================================
-   BARRA SUPERIOR
-========================================================= */
-
-.top-bar {
-
-    height: 26px;
-
-    background: #050000;
-
-    border-bottom: 1px solid #4d0808;
-
-    color: #8c7777;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 0 12px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 1px;
-
-}
-
-
-/* =========================================================
-   CONTENEDOR
-========================================================= */
-
-.site-wrapper {
-
-    width: 960px;
-
-    margin: 20px auto 50px;
-
-    background: #080303;
-
-    border: 1px solid #551010;
-
-    box-shadow:
-
-        0 0 0 4px #020000,
-
-        0 0 25px rgba(80,0,0,0.7),
-
-        0 0 80px rgba(40,0,0,0.5);
-
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header {
-
-    min-height: 160px;
-
-    padding: 28px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    background:
-
-        radial-gradient(
-            ellipse at 40% 50%,
-            #300808,
-            #100202 55%,
-            #030000 100%
-        );
-
-    border-bottom: 1px solid #691313;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-/* Línea roja decorativa */
-
-header::after {
-
-    content: "";
-
-    position: absolute;
-
-    bottom: 0;
-
-    left: 0;
-
-    width: 55%;
-
-    height: 2px;
-
-    background: #8c1111;
-
-    box-shadow: 0 0 12px #8c1111;
-
-}
-
-
-.header-logo {
-
-    position: relative;
-
-    z-index: 2;
-
-}
-
-
-.small-text {
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    color: #a94a4a;
-
-    letter-spacing: 5px;
-
-}
-
-
-.header-logo h1 {
-
-    margin: 3px 0 5px;
-
-    font-family:
-
-        "Times New Roman",
-
-        Times,
-
-        serif;
-
-    font-size: 54px;
-
-    font-weight: normal;
-
-    letter-spacing: 9px;
-
-    color: #f0eeee;
-
-    text-shadow:
-
-        2px 2px 0 #000,
-
-        0 0 10px #6d0b0b,
-
-        0 0 25px rgba(130,0,0,0.7);
-
-}
-
-
-.subtitle {
-
-    font-family: Georgia, serif;
-
-    font-style: italic;
-
-    font-size: 12px;
-
-    color: #8c7777;
-
-}
-
-
-.header-status {
-
-    width: 150px;
-
-    padding: 13px;
-
-    text-align: center;
-
-    background: #080000;
-
-    border: 1px solid #681212;
-
-    color: #9c7777;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    box-shadow:
-
-        inset 0 0 15px #000,
-
-        0 0 8px rgba(100,0,0,0.3);
-
-}
-
-
-.header-status .red {
-
-    color: #c92727;
-
-}
-
-
-/* =========================================================
-   NAVEGACIÓN
-========================================================= */
-
-nav {
-
-    display: flex;
-
-    background: #0b0202;
-
-    border-bottom: 1px solid #581010;
-
-}
-
-
-nav a {
-
-    flex: 1;
-
-    padding: 11px 5px;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    color: #a38a8a;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    border-right: 1px solid #351010;
-
-    background:
-
-        linear-gradient(
-            #250909,
-            #0b0101
-        );
-
-    transition: 0.15s;
-
-}
-
-
-nav a:hover {
-
-    color: white;
-
-    background:
-
-        linear-gradient(
-            #651313,
-            #220404
-        );
-
-    text-shadow:
-
-        0 0 6px #ff4444;
-
-}
-
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee {
-
-    height: 25px;
-
-    overflow: hidden;
-
-    background: #020000;
-
-    border-bottom: 1px solid #3d0808;
-
-    white-space: nowrap;
-
-    color: #8e3939;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-}
-
-
-#marqueeText {
-
-    display: inline-block;
-
-    padding-left: 100%;
-
-    line-height: 25px;
-
-    animation:
-
-        marquee 22s linear infinite;
-
-}
-
-
-@keyframes marquee {
-
-    from {
-
-        transform: translateX(0);
-
-    }
-
-    to {
-
-        transform: translateX(-100%);
-
-    }
-
-}
-
-
-/* =========================================================
-   CONTENIDO
-========================================================= */
-
-main {
-
-    display: grid;
-
-    grid-template-columns: 1fr 220px;
-
-    gap: 15px;
-
-    padding: 15px;
-
-}
-
-
-/* =========================================================
-   VENTANA PRINCIPAL
-========================================================= */
-
-.window {
-
-    margin-bottom: 15px;
-
-    border: 1px solid #651111;
-
-    background: #050000;
-
-    box-shadow:
-
-        inset 0 0 25px rgba(90,0,0,0.15);
-
-}
-
-
-.window-title {
-
-    height: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 6px;
-
-    background:
-
-        linear-gradient(
-            #4a0c0c,
-            #190303
-        );
-
-    border-bottom: 1px solid #751414;
-
-    color: #e5dede;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-
-}
-
-
-.window-buttons {
-
-    display: flex;
-
-    gap: 3px;
-
-}
-
-
-.window-buttons button {
-
-    width: 18px;
-
-    height: 17px;
-
-    padding: 0;
-
-    background: #1c0505;
-
-    color: #d7baba;
-
-    border: 1px solid #6d1b1b;
-
-    cursor: pointer;
-
-}
-
-
-/* =========================================================
-   BIENVENIDA
-========================================================= */
-
-.window-content {
-
-    padding: 35px 25px;
-
-    min-height: 245px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-
-        radial-gradient(
-            ellipse at center,
-            #210505,
-            #070000 70%
-        );
-
-}
-
-
-.welcome {
-
-    width: 100%;
-
-    text-align: center;
-
-}
-
-
-.ascii-title {
-
-    color: #7c2929;
-
-    font-family: "Courier New", monospace;
-
-    line-height: 1.5;
-
-    margin-bottom: 22px;
-
-}
-
-
-.welcome h2 {
-
-    margin: 0 0 12px;
-
-    color: #eee;
-
-    font-family: Georgia, serif;
-
-    font-weight: normal;
-
-    font-size: 26px;
-
-    letter-spacing: 4px;
-
-}
-
-
-.welcome p {
-
-    max-width: 500px;
-
-    margin: 8px auto;
-
-    color: #917b7b;
-
-    line-height: 1.7;
-
-}
-
-
-.enter-button {
-
-    margin-top: 18px;
-
-    padding: 9px 30px;
-
-    color: #eee;
-
-    background:
-
-        linear-gradient(
-            #641212,
-            #260404
-        );
-
-    border: 1px solid #9b2929;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-
-    cursor: pointer;
-
-    box-shadow:
-
-        0 0 8px rgba(120,0,0,0.35),
-
-        inset 0 0 8px #150000;
-
-}
-
-
-.enter-button:hover {
-
-    background:
-
-        linear-gradient(
-            #8d1919,
-            #350505
-        );
-
-    color: white;
-
-    box-shadow:
-
-        0 0 15px rgba(170,0,0,0.5);
-
-}
-
-
-/* =========================================================
-   SECCIONES
-========================================================= */
-
-.section-box {
-
-    margin-bottom: 15px;
-
-    border: 1px solid #551010;
-
-    background: #080202;
-
-}
-
-
-.section-header {
-
-    padding: 8px 10px;
-
-    background:
-
-        linear-gradient(
-            #350909,
-            #130202
-        );
-
-    border-bottom: 1px solid #5c1111;
-
-    color: #c48b8b;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-}
-
-
-.section-content {
-
-    padding: 20px;
-
-    line-height: 1.8;
-
-}
-
-
-.section-content h2 {
-
-    margin-top: 0;
-
-    color: #eee;
-
-    font-family: Georgia, serif;
-
-    font-weight: normal;
-
-    font-size: 24px;
-
-    letter-spacing: 3px;
-
-}
-
-
-.section-content p {
-
-    color: #a38c8c;
-
-}
-
-
-.highlight {
-
-    padding: 14px;
-
-    margin-top: 20px;
-
-    border-left: 3px solid #8c1717;
-
-    background: #150303;
-
-    color: #d3bcbc !important;
-
-    font-family: Georgia, serif;
-
-    font-style: italic;
-
-}
-
-
-/* =========================================================
-   REPRODUCTOR
-========================================================= */
-
-.fake-player {
-
-    border: 1px solid #551010;
-
-    background: #000;
-
-}
-
-
-.player-screen {
-
-    height: 220px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background:
-
-        radial-gradient(
-            ellipse,
-            #1a0303,
-            #020000
-        );
-
-    color: #541414;
-
-    font-family: "Courier New", monospace;
-
-    position: relative;
-
-}
-
-
-.player-screen::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(150,0,0,0.025) 4px
-        );
-
-}
-
-
-.player-screen span {
-
-    font-size: 25px;
-
-    letter-spacing: 6px;
-
-    z-index: 2;
-
-}
-
-
-.player-screen small {
-
-    margin-top: 12px;
-
-    color: #351010;
-
-    z-index: 2;
-
-}
-
-
-.player-controls {
-
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 5px 10px;
-
-    background: #100202;
-
-    border-top: 1px solid #441010;
-
-}
-
-
-.player-controls button {
-
-    width: 28px;
-
-    height: 25px;
-
-    background: #260606;
-
-    color: #d9bebe;
-
-    border: 1px solid #681515;
-
-    cursor: pointer;
-
-}
-
-
-.player-controls button:hover {
-
-    background: #641212;
-
-}
-
-
-.progress {
-
-    flex: 1;
-
-    height: 7px;
-
-    background: #050000;
-
-    border: 1px solid #421010;
-
-}
-
-
-#progressBar {
-
-    width: 0%;
-
-    height: 100%;
-
-    background: #8e1818;
-
-    box-shadow: 0 0 5px #8e1818;
-
-}
-
-
-#timeDisplay {
-
-    font-family: "Courier New", monospace;
-
-    color: #754b4b;
-
-    font-size: 9px;
-
-}
-
-
-.under-player {
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    color: #693434 !important;
-
-}
-
-
-/* =========================================================
-   TABLA
-========================================================= */
-
-table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-
-}
-
-
-td {
-
-    padding: 9px;
-
-    border: 1px solid #351010;
-
-}
-
-
-td:first-child {
-
-    width: 35%;
-
-    background: #130303;
-
-    color: #794c4c;
-
-    font-weight: bold;
-
-}
-
-
-td:last-child {
-
-    color: #bfa9a9;
-
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.side-box {
-
-    margin-bottom: 15px;
-
-    border: 1px solid #511010;
-
-    background: #070101;
-
-}
-
-
-.side-title {
-
-    padding: 8px;
-
-    background:
-
-        linear-gradient(
-            #350909,
-            #130202
-        );
-
-    border-bottom: 1px solid #551010;
-
-    color: #bd8585;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    font-weight: bold;
-
-}
-
-
-.side-box > a {
-
-    display: block;
-
-    padding: 9px;
-
-    color: #846c6c;
-
-    border-bottom: 1px solid #240909;
-
-    text-decoration: none;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-}
-
-
-.side-box > a:hover {
-
-    background: #250606;
-
-    color: #eee;
-
-    padding-left: 13px;
-
-}
-
-
-/* =========================================================
-   ESTADO
-========================================================= */
-
-.status {
-
-    display: flex;
-
-    gap: 10px;
-
-    padding: 15px;
-
-    align-items: center;
-
-    font-family: "Courier New", monospace;
-
-    color: #8b7070;
-
-}
-
-
-.status-light {
-
-    width: 9px;
-
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: #a71818;
-
-    box-shadow:
-
-        0 0 7px #b51d1d;
-
-}
-
-
-.status small {
-
-    color: #503737;
-
-    font-size: 8px;
-
-}
-
-
-/* =========================================================
-   ESTADÍSTICAS
-========================================================= */
-
-.stats {
-
-    padding: 10px;
-
-}
-
-
-.stats div {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 7px 0;
-
-    border-bottom: 1px dotted #321010;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-}
-
-
-.stats span {
-
-    color: #684848;
-
-}
-
-
-.stats strong {
-
-    color: #a78a8a;
-
-}
-
-
-/* =========================================================
-   LIBRO DE VISITAS
-========================================================= */
-
-.guestbook {
-
-    text-align: center;
-
-    padding-bottom: 12px;
-
-}
-
-
-.guestbook p {
-
-    color: #765858;
-
-}
-
-
-.guestbook button {
-
-    padding: 6px 10px;
-
-    background: #210505;
-
-    border: 1px solid #671414;
-
-    color: #b99797;
-
-    cursor: pointer;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-}
-
-
-.guestbook button:hover {
-
-    background: #5b1010;
-
-    color: white;
-
-}
-
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.badge {
-
-    width: 105px;
-
-    height: 70px;
-
-    margin: 15px auto;
-
-    border: 2px solid #601414;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #2b0707,
-            #060000
-        );
-
-    text-align: center;
-
-    padding-top: 7px;
-
-    box-shadow:
-
-        inset 0 0 15px #000,
-
-        0 0 8px rgba(100,0,0,0.3);
-
-}
-
-
-.badge span {
-
-    display: block;
-
-    font-size: 8px;
-
-    color: #7f4141;
-
-}
-
-
-.badge strong {
-
-    font-family: "Arial Black", Arial;
-
-    color: #b99393;
-
-    font-size: 14px;
-
-    line-height: 15px;
-
-}
-
-
-.tiny {
-
-    padding: 10px;
-
-    text-align: center;
-
-    color: #4d3030;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =========================================================
-   CONTACTO
-========================================================= */
-
-.contact-section {
-
-    margin: 0 15px 15px;
-
-    border: 1px solid #551010;
-
-    background: #080202;
-
-}
-
-
-.contact-content {
-
-    padding: 20px;
-
-    text-align: center;
-
-    font-family: "Courier New", monospace;
-
-}
-
-
-.email {
-
-    color: #b88b8b;
-
-    font-size: 13px;
-
-    text-decoration: underline;
-
-}
-
-
-.social-links {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 20px;
-
-}
-
-
-.social-links a {
-
-    color: #885f5f;
-
-    text-decoration: none;
-
-    padding: 5px;
-
-    border: 1px solid #481010;
-
-}
-
-
-.social-links a:hover {
-
-    color: white;
-
-    background: #3a0808;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    padding: 25px;
-
-    text-align: center;
-
-    background: #030000;
-
-    border-top: 1px solid #481010;
-
-    color: #513333;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-
-    line-height: 2;
-
-}
-
-
-.footer-line {
-
-    color: #2d1010;
-
-}
-
-
-.footer-buttons {
-
-    margin-top: 10px;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 5px;
-
-}
-
-
-.footer-buttons span {
-
-    padding: 2px 5px;
-
-    border: 1px solid #2c0c0c;
-
-    color: #563333;
-
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: rgba(0,0,0,0.85);
-
-    z-index: 1000;
-
-}
-
-
-.modal.active {
-
-    display: flex;
-
-}
-
-
-.modal-window {
-
-    width: 380px;
-
-    border: 1px solid #791717;
-
-    background: #0b0202;
-
-    box-shadow:
-
-        0 0 30px rgba(130,0,0,0.4);
-
-}
-
-
-.modal-content {
-
-    padding: 25px;
-
-    text-align: center;
-
-    color: #ad9292;
-
-    font-family: "Courier New", monospace;
-
-}
-
-
-.modal-content button {
-
-    padding: 7px 20px;
-
-    background: #260606;
-
-    border: 1px solid #681515;
-
-    color: #c9aaaa;
-
-    cursor: pointer;
-
-}
-
-
-.modal-content button:hover {
-
-    background: #641212;
-
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 980px) {
-
-    .site-wrapper {
-
-        width: 95%;
-
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .site-wrapper {
-
-        width: 100%;
-
-        margin: 0;
-
-        border-left: 0;
-
-        border-right: 0;
-
-    }
-
-
-    header {
-
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 20px;
-
-    }
-
-
-    .header-logo h1 {
-
-        font-size: 35px;
-
-        letter-spacing: 5px;
-
-    }
-
-
-    main {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    nav {
-
-        flex-wrap: wrap;
-
-    }
-
-
-    nav a {
-
-        flex: 1 1 33%;
-
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080000">
+
+    <title>PANÓPTICO // Archivo de otra dimensión</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(ellipse at top, #260000 0%, #0b0000 48%, #000 100%);
+            color: #e5e5e5;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        a {
+            color: #ff3333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .page {
+            width: 92%;
+            max-width: 1100px;
+            margin: 30px auto;
+            border: 1px solid #690000;
+            background: rgba(0, 0, 0, 0.96);
+            box-shadow: 0 0 35px rgba(150, 0, 0, 0.25);
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-bottom: 2px solid #8d0000;
+            background: linear-gradient(180deg, #260000, #080000 85%);
+        }
+
+        .warning {
+            color: #a9a9a9;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #f4f4f4;
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 9vw, 82px);
+            letter-spacing: 12px;
+            text-shadow:
+                0 0 5px #ff0000,
+                0 0 20px #8d0000;
+        }
+
+        .subtitle {
+            margin-top: 12px;
+            color: #c00000;
+            letter-spacing: 5px;
+            font-size: 12px;
+        }
+
+        .header-line {
+            width: 65%;
+            height: 1px;
+            margin: 25px auto 0;
+            background: linear-gradient(90deg, transparent, #a00000, transparent);
+        }
+
+        /* NAVEGACIÓN */
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px 5px;
+            background: #160000;
+            border-bottom: 1px solid #650000;
+        }
+
+        nav a {
+            padding: 8px 15px;
+            color: #ddd;
+            font-size: 12px;
+            border-right: 1px solid #4a0000;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: #790000;
+            text-decoration: none;
+        }
+
+        /* MARQUESINA */
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 9px;
+            color: #ff4444;
+            background: #090000;
+            border-bottom: 1px solid #390000;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* ESTRUCTURA */
+
+        .content {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(210px, 0.85fr);
+            gap: 20px;
+            padding: 25px;
+        }
+
+        main {
+            min-width: 0;
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding: 20px;
+            background: linear-gradient(135deg, #100000, #050000);
+            border: 1px solid #430000;
+            scroll-margin-top: 20px;
+        }
+
+        .section-title {
+            margin: 0 0 18px;
+            padding-bottom: 10px;
+            color: #f0f0f0;
+            font-family: Georgia, serif;
+            font-size: 21px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            border-bottom: 1px solid #850000;
+        }
+
+        .section-title span {
+            color: #b00000;
+        }
+
+        .text {
+            color: #bbb;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        .separator {
+            height: 1px;
+            margin: 25px 0;
+            background: linear-gradient(90deg, transparent, #790000, transparent);
+        }
+
+        /* INICIO */
+
+        .welcome {
+            text-align: center;
+            padding: 38px 20px;
+        }
+
+        .welcome h2 {
+            color: #d00000;
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .welcome p {
+            max-width: 570px;
+            margin: 20px auto 0;
+            color: #aaa;
+            line-height: 1.9;
+        }
+
+        .tagline {
+            margin-top: 25px;
+            color: #e00000;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        /* VIDEO */
+
+        .video-label {
+            margin-bottom: 12px;
+            color: #e00000;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #000;
+            border: 2px solid #8b0000;
+            box-shadow: 0 0 18px rgba(180, 0, 0, 0.25);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-caption {
+            margin-top: 12px;
+            color: #777;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* FICHA TÉCNICA */
+
+        .technical-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .data-item {
+            padding: 13px;
+            background: #0a0000;
+            border-left: 2px solid #790000;
+        }
+
+        .data-label {
+            display: block;
+            margin-bottom: 6px;
+            color: #a00000;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .data-value {
+            color: #ccc;
+            font-size: 13px;
+        }
+
+        /* MOTIVACIÓN */
+
+        .motivation {
+            color: #bbb;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        /* REALIZADORES */
+
+        .creators {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .creator {
+            padding: 15px 10px;
+            background: #0a0000;
+            border: 1px solid #350000;
+            text-align: center;
+        }
+
+        .creator-name {
+            display: block;
+            margin-bottom: 8px;
+            color: #eee;
+            font-family: Georgia, serif;
+            font-size: 14px;
+        }
+
+        .creator-role {
+            color: #a00000;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* ÁREAS CREATIVAS */
+
+        .creative-block {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #680000;
+        }
+
+        .creative-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .creative-block h3 {
+            margin: 0 0 8px;
+            color: #d00000;
+            font-family: Georgia, serif;
+            font-size: 17px;
+            font-weight: normal;
+        }
+
+        .creative-block p {
+            margin: 0;
+            color: #aaa;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* GALERÍA */
+
+        .gallery-intro {
+            margin-bottom: 20px;
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            background: #080000;
+            border: 1px solid #650000;
+            box-shadow: 0 0 10px rgba(120, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.82) contrast(1.1);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+            filter: brightness(1) contrast(1.1);
+        }
+
+        .gallery-item::after {
+            content: "PANÓPTICO // ARCHIVO VISUAL";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.75);
+            font-size: 9px;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* VISUALIZADOR DE GALERÍA */
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .lightbox img {
+            display: block;
+            max-width: 100%;
+            max-height: 78vh;
+            margin: auto;
+            border: 2px solid #850000;
+            box-shadow: 0 0 30px #400000;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -35px;
+            right: 0;
+            color: #ff3333;
+            background: none;
+            border: none;
+            font-family: "Courier New", monospace;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .lightbox-caption {
+            margin-top: 12px;
+            color: #aaa;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* COLUMNA LATERAL */
+
+        aside {
+            min-width: 0;
+        }
+
+        .side-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #0a0000;
+            border: 1px solid #450000;
+        }
+
+        .side-title {
+            margin: 0 0 14px;
+            padding-bottom: 8px;
+            color: #d00000;
+            font-size: 13px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #500000;
+        }
+
+        .side-box p {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .status {
+            color: #b00000;
+        }
+
+        .side-link {
+            display: block;
+            padding: 8px 0;
+            color: #aaa;
+            border-bottom: 1px dotted #430000;
+        }
+
+        .side-link:hover {
+            color: #f44;
+        }
+
+        .side-quote {
+            color: #c00000 !important;
+            font-family: Georgia, serif;
+            font-size: 15px !important;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .clock {
+            padding: 8px;
+            color: #ff4444;
+            background: #000;
+            border: 1px inset #550000;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            padding: 25px 15px;
+            color: #666;
+            background: #080000;
+            border-top: 1px solid #650000;
+            text-align: center;
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        footer strong {
+            color: #a00000;
+            letter-spacing: 3px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+            .page {
+                width: 96%;
+                margin: 10px auto;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                padding: 12px;
+            }
+
+            header h1 {
+                letter-spacing: 6px;
+            }
+
+            nav a {
+                padding: 9px 10px;
+            }
+
+            .creators {
+                grid-template-columns: 1fr;
+            }
+
+            .technical-data {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .technical-data {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+<div class="page">
 
-<!-- =====================================================
-     BARRA SUPERIOR
-===================================================== -->
+    <!-- ENCABEZADO -->
 
-<div class="top-bar">
-
-    <span>
-        ★ ARCHIVO DIGITAL // SITIO OFICIAL ★
-    </span>
-
-    <span id="clock">
-        00:00:00
-    </span>
-
-</div>
-
-
-
-<!-- =====================================================
-     SITIO
-===================================================== -->
-
-<div class="site-wrapper">
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header>
-
-    <div class="header-logo">
-
-        <div class="small-text">
-            CORTOMETRAJE
+    <header>
+        <div class="warning">
+            TRANSMISIÓN INTERDIMENSIONAL // ACCESO PÚBLICO
         </div>
 
-        <h1>
-            EL UMBRAL
-        </h1>
+        <h1>PANÓPTICO</h1>
 
         <div class="subtitle">
-            Algunas cosas deberían permanecer enterradas.
+            UNA SERIE DE MARIO VELÁSQUEZ
         </div>
 
-    </div>
+        <div class="header-line"></div>
+    </header>
 
+    <!-- NAVEGACIÓN -->
 
-    <div class="header-status">
+    <nav>
+        <a href="#inicio">INICIO</a>
+        <a href="#sinopsis">SINOPSIS</a>
+        <a href="#teaser">TEASER</a>
+        <a href="#proyecto">EL PROYECTO</a>
+        <a href="#realizadores">REALIZADORES</a>
+        <a href="#galeria">GALERÍA</a>
+    </nav>
 
-        <div>
-            <span class="red">●</span>
-            SITIO OFICIAL
-        </div>
+    <!-- MARQUESINA -->
 
-        <br>
-
-        <div>
-            ARCHIVO 01
-        </div>
-
-        <br>
-
-        <div>
-            ESTADO:
-            <span class="red">
-                ONLINE
-            </span>
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     NAVEGACIÓN
-===================================================== -->
-
-<nav>
-
-    <a href="#inicio">
-        INICIO
-    </a>
-
-    <a href="#sinopsis">
-        SINOPSIS
-    </a>
-
-    <a href="#pelicula">
-        LA PELÍCULA
-    </a>
-
-    <a href="#ficha">
-        FICHA TÉCNICA
-    </a>
-
-    <a href="#contacto">
-        CONTACTO
-    </a>
-
-</nav>
-
-
-
-<!-- =====================================================
-     MARQUEE
-===================================================== -->
-
-<div class="marquee">
-
-    <div id="marqueeText">
-
-        ★ EL UMBRAL ★ CORTOMETRAJE DE HORROR PSICOLÓGICO ★
-        ARCHIVO 01 ★ PRÓXIMAMENTE ★
-        ALGUNAS MEMORIAS NUNCA DESAPARECEN ★
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CONTENIDO PRINCIPAL
-===================================================== -->
-
-<main id="inicio">
-
-
-<!-- =====================================================
-     COLUMNA PRINCIPAL
-===================================================== -->
-
-<section>
-
-
-<!-- VENTANA DE BIENVENIDA -->
-
-<div class="window">
-
-    <div class="window-title">
-
+    <div class="marquee">
         <span>
-            EL_UMBRAL.EXE
+            PANÓPTICO //// LAS PESADILLAS DUERMEN CONTIGO //// Y NOSOTROS LAS OBSERVAMOS //// PANÓPTICO ////
         </span>
-
-        <div class="window-buttons">
-
-            <button>_</button>
-
-            <button>□</button>
-
-            <button>×</button>
-
-        </div>
-
     </div>
 
+    <div class="content">
 
-    <div class="window-content">
+        <main>
 
-        <div class="welcome">
+            <!-- INICIO -->
 
-            <div class="ascii-title">
+            <section class="welcome" id="inicio">
 
-                +--------------------------------+
-                <br>
+                <div class="warning">
+                    BIENVENIDO A LA TRANSMISIÓN
+                </div>
 
-                | &nbsp;&nbsp;&nbsp; ARCHIVO ENCONTRADO &nbsp;&nbsp;&nbsp; |
-                <br>
+                <h2>LAS PESADILLAS DUERMEN CONTIGO</h2>
 
-                +--------------------------------+
+                <div class="separator"></div>
 
-            </div>
+                <p>
+                    Desde otra dimensión, una transmisión televisiva
+                    nos permite observar aquello que habita en el
+                    subconsciente humano.
+                </p>
 
+                <div class="tagline">
+                    «Y nosotros las observamos».
+                </div>
 
-            <h2>
-                EL UMBRAL
-            </h2>
+            </section>
 
+            <!-- SINOPSIS -->
 
-            <p>
-                Bienvenido al archivo oficial del cortometraje.
-            </p>
+            <section id="sinopsis">
 
+                <h2 class="section-title">
+                    <span>01 //</span> SINOPSIS
+                </h2>
 
-            <p>
-                Algunas historias no terminan cuando despiertas.
-            </p>
+                <p class="text">
+                    PANÓPTICO es un programa de televisión proveniente
+                    de otra dimensión, en el que su presentador,
+                    Vigilante, nos guía a través del mundo de las
+                    pesadillas de quienes en ese momento duermen.
+                    Es un sitio en el que se da rienda suelta a la
+                    creatividad en pro de sacar aquellas ideas desde
+                    lo más profundo del subconsciente humano.
+                </p>
 
+            </section>
 
-            <button
-                class="enter-button"
-                id="enterButton"
-            >
-                [ ABRIR ARCHIVO ]
-            </button>
+            <!-- TEASER -->
 
-        </div>
+            <section id="teaser">
 
-    </div>
+                <h2 class="section-title">
+                    <span>02 //</span> ARCHIVO DE VIDEO
+                </h2>
 
-</div>
+                <div class="video-label">
+                    // PANÓPTICO - TEASER OFICIAL
+                </div>
 
+                <div class="video-container">
 
-
-<!-- =====================================================
-     SINOPSIS
-===================================================== -->
-
-<div
-    class="section-box"
-    id="sinopsis"
->
-
-    <div class="section-header">
-
-        :: 01 // SINOPSIS ::
-
-    </div>
-
-
-    <div class="section-content">
-
-        <h2>
-            EL UMBRAL
-        </h2>
-
-
-        <p>
-            David ha pasado gran parte de su vida intentando
-            controlar todo aquello que teme perder.
-        </p>
-
-
-        <p>
-            Después de una serie de acontecimientos que destruyen
-            su familia, se ve obligado a enfrentarse con los
-            recuerdos que durante años intentó mantener enterrados.
-        </p>
-
-
-        <p>
-            En un espacio donde los límites entre la memoria,
-            la culpa y la realidad comienzan a desaparecer,
-            David deberá recorrer los lugares más oscuros
-            de su propia mente.
-        </p>
-
-
-        <p class="highlight">
-
-            ¿Hasta dónde puede llegar una persona para escapar
-            de aquello que lleva dentro?
-
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     PELÍCULA
-===================================================== -->
-
-<div
-    class="section-box"
-    id="pelicula"
->
-
-    <div class="section-header">
-
-        :: 02 // LA PELÍCULA ::
-
-    </div>
-
-
-    <div class="section-content">
-
-
-        <div class="fake-player">
-
-
-            <div class="player-screen">
-
-                <span>
-                    NO SIGNAL
-                </span>
-
-                <small>
-                    EL UMBRAL // TRAILER
-                </small>
-
-            </div>
-
-
-            <div class="player-controls">
-
-                <button id="playButton">
-                    ▶
-                </button>
-
-
-                <div class="progress">
-
-                    <div id="progressBar"></div>
+                    <iframe
+                        src="https://www.youtube.com/embed/eTb1eq-CgPQ"
+                        title="PANÓPTICO - Teaser oficial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
 
                 </div>
 
+                <div class="video-caption">
+                    REPRODUCCIÓN EXTERNA // YOUTUBE
+                </div>
 
-                <span id="timeDisplay">
-                    00:00
-                </span>
+            </section>
+
+            <!-- MOTIVACIÓN -->
+
+            <section id="proyecto">
+
+                <h2 class="section-title">
+                    <span>03 //</span> MOTIVACIÓN
+                </h2>
+
+                <p class="motivation">
+                    PANÓPTICO nace de un sueño lúcido y de mi profunda
+                    fascinación por el terror como espejo de la
+                    condición humana. Mi motivación es transformar
+                    nuestros traumas, culpas y miedos reprimidos en
+                    monstruos y atmósferas opresivas.
+                </p>
+
+                <p class="motivation">
+                    Más que asustar, busco crear una experiencia
+                    audiovisual cruda y experimental que obligue
+                    al espectador a confrontar su propia oscuridad
+                    interna.
+                </p>
+
+            </section>
+
+            <!-- FICHA TÉCNICA -->
+
+            <section id="ficha">
+
+                <h2 class="section-title">
+                    <span>04 //</span> FICHA TÉCNICA
+                </h2>
+
+                <div class="technical-data">
+
+                    <div class="data-item">
+                        <span class="data-label">TÍTULO</span>
+                        <span class="data-value">PANÓPTICO</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">FORMATO</span>
+                        <span class="data-value">Serie</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">DURACIÓN</span>
+                        <span class="data-value">15 - 20 minutos</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">GÉNERO</span>
+                        <span class="data-value">Terror</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">PAÍS</span>
+                        <span class="data-value">Colombia</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">PÚBLICO</span>
+                        <span class="data-value">18 - 30 años</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">CREADOR</span>
+                        <span class="data-value">Mario Velásquez</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- REALIZADORES -->
+
+            <section id="realizadores">
+
+                <h2 class="section-title">
+                    <span>05 //</span> REALIZADORES
+                </h2>
+
+                <div class="creators">
+
+                    <div class="creator">
+                        <span class="creator-name">
+                            Cristian Dúran Jimenez
+                        </span>
+
+                        <span class="creator-role">
+                            DIRECTOR DE FOTOGRAFÍA
+                        </span>
+                    </div>
+
+                    <div class="creator">
+                        <span class="creator-name">
+                            Sara Sofía Bonilla Hurtado
+                        </span>
+
+                        <span class="creator-role">
+                            PRODUCTORA GENERAL
+                        </span>
+                    </div>
+
+                    <div class="creator">
+                        <span class="creator-name">
+                            Carlos Mario Velasquez Ferreira
+                        </span>
+
+                        <span class="creator-role">
+                            DIRECTOR / ESCRITOR / SHOWRUNNER
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- DIRECCIÓN DE ARTE -->
+
+            <section id="arte">
+
+                <h2 class="section-title">
+                    <span>06 //</span> DIRECCIÓN DE ARTE
+                </h2>
+
+                <div class="creative-block">
+
+                    <h3>Escenografía</h3>
+
+                    <p>
+                        Espacios oníricos y teatrales que intentan
+                        —con extrañeza— imitar el mundo humano,
+                        combinados con locaciones abandonadas
+                        y lúgubres.
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Criaturas</h3>
+
+                    <p>
+                        Uso de maquillaje de efectos (heridas,
+                        desfiguraciones) para materializar los
+                        traumas de los personajes en monstruos
+                        perturbadores.
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Vestuario</h3>
+
+                    <p>
+                        Contraste visual entre la elegancia
+                        descuidada de Vigilante y la agresividad
+                        gótica/emo de los antagonistas
+                        (cuero negro, corsets).
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FOTOGRAFÍA -->
+
+            <section id="fotografia">
+
+                <h2 class="section-title">
+                    <span>07 //</span> FOTOGRAFÍA
+                </h2>
+
+                <div class="creative-block">
+
+                    <h3>Formato imperfecto</h3>
+
+                    <p>
+                        Uso de camcorders MiniDV para lograr una
+                        imagen áspera, sucia y con grano visible
+                        (estilo found footage).
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Textura</h3>
+
+                    <p>
+                        Incorporación de ruido digital, fallos
+                        de señal y defectos de cinta.
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Atmósfera</h3>
+
+                    <p>
+                        Iluminación inspirada en el expresionismo
+                        alemán, con contrastes agresivos
+                        (bleach bypass) y sombras marcadas que
+                        generan incomodidad visual.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- SONIDO -->
+
+            <section id="sonido">
+
+                <h2 class="section-title">
+                    <span>08 //</span> SONIDO
+                </h2>
+
+                <div class="creative-block">
+
+                    <h3>Diseño sonoro</h3>
+
+                    <p>
+                        Ambientes opresivos construidos con ruidos
+                        chirriantes y texturas metálicas/industriales
+                        que mantienen al espectador en alerta.
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Musicalización</h3>
+
+                    <p>
+                        Pistas instrumentales e inmersivas que se
+                        fusionan con el ambiente para no distraer
+                        de la historia.
+                    </p>
+
+                </div>
+
+                <div class="creative-block">
+
+                    <h3>Identidad sonora</h3>
+
+                    <p>
+                        Contrastes marcados, desde coros teatrales
+                        y zumbidos catódicos en la introducción,
+                        hasta metal gótico sinfónico cantado en
+                        latín como textura de cierre.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- GALERÍA -->
+
+            <section id="galeria">
+
+                <h2 class="section-title">
+                    <span>09 //</span> GALERÍA
+                </h2>
+
+                <p class="gallery-intro">
+                    REGISTROS VISUALES // FOTOGRAMAS // ARCHIVO PANÓPTICO
+                </p>
+
+                <div class="gallery">
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen1.jpg', 'ARCHIVO VISUAL 01')">
+                        <img src="imagen1.jpg" alt="Imagen 1 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen2.jpg', 'ARCHIVO VISUAL 02')">
+                        <img src="imagen2.jpg" alt="Imagen 2 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen3.jpg', 'ARCHIVO VISUAL 03')">
+                        <img src="imagen3.jpg" alt="Imagen 3 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen4.jpg', 'ARCHIVO VISUAL 04')">
+                        <img src="imagen4.jpg" alt="Imagen 4 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen5.jpg', 'ARCHIVO VISUAL 05')">
+                        <img src="imagen5.jpg" alt="Imagen 5 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                    <div class="gallery-item"
+                         onclick="openLightbox('imagen6.jpg', 'ARCHIVO VISUAL 06')">
+                        <img src="imagen6.jpg" alt="Imagen 6 de PANÓPTICO" loading="lazy">
+                    </div>
+
+                </div>
+
+                <div class="video-caption">
+                    SELECCIONA UNA IMAGEN PARA AMPLIARLA
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- COLUMNA LATERAL -->
+
+        <aside>
+
+            <div class="side-box">
+
+                <h3 class="side-title">ESTADO DE TRANSMISIÓN</h3>
+
+                <p>
+                    PROGRAMA:
+                    <span class="status">PANÓPTICO</span>
+                </p>
+
+                <p>
+                    PROCEDENCIA:
+                    <span class="status">OTRA DIMENSIÓN</span>
+                </p>
+
+                <p>
+                    PRESENTADOR:
+                    <span class="status">VIGILANTE</span>
+                </p>
+
+                <p>
+                    SEÑAL:
+                    <span class="status">RECIBIDA</span>
+                </p>
 
             </div>
 
-        </div>
+            <div class="side-box">
 
+                <h3 class="side-title">NAVEGACIÓN</h3>
 
-        <p class="under-player">
+                <a class="side-link" href="#inicio">&gt; Inicio</a>
+                <a class="side-link" href="#sinopsis">&gt; Sinopsis</a>
+                <a class="side-link" href="#teaser">&gt; Teaser</a>
+                <a class="side-link" href="#proyecto">&gt; Motivación</a>
+                <a class="side-link" href="#realizadores">&gt; Realizadores</a>
+                <a class="side-link" href="#arte">&gt; Dirección de arte</a>
+                <a class="side-link" href="#fotografia">&gt; Fotografía</a>
+                <a class="side-link" href="#sonido">&gt; Sonido</a>
+                <a class="side-link" href="#galeria">&gt; Galería</a>
 
-            &gt;&gt; ARCHIVO DE VIDEO NO DISPONIBLE
+            </div>
 
-        </p>
+            <div class="side-box">
+
+                <h3 class="side-title">RELOJ DEL SISTEMA</h3>
+
+                <div class="clock" id="clock">
+                    00:00:00
+                </div>
+
+                <p>HORA LOCAL DE LA TRANSMISIÓN</p>
+
+            </div>
+
+            <div class="side-box">
+
+                <h3 class="side-title">REGISTRO</h3>
+
+                <p>
+                    PANÓPTICO es una transmisión procedente
+                    de un lugar que no pertenece a nuestro mundo.
+                </p>
+
+                <p style="color:#700000;">
+                    // NO INTERRUMPIR LA SEÑAL
+                </p>
+
+            </div>
+
+            <div class="side-box">
+
+                <h3 class="side-title">OBSERVACIÓN</h3>
+
+                <p class="side-quote">
+                    Las pesadillas duermen contigo,
+                    y nosotros las observamos.
+                </p>
+
+            </div>
+
+        </aside>
 
     </div>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <strong>PANÓPTICO</strong>
+
+        <br>
+
+        UNA SERIE DE MARIO VELÁSQUEZ
+
+        <br>
+
+        LAS PESADILLAS DUERMEN CONTIGO,
+        Y NOSOTROS LAS OBSERVAMOS.
+
+        <br>
+
+        <span id="year"></span>
+
+    </footer>
 
 </div>
 
+<!-- VISUALIZADOR DE IMÁGENES -->
 
+<div class="lightbox" id="lightbox">
 
-<!-- =====================================================
-     FICHA TÉCNICA
-===================================================== -->
+    <div class="lightbox-content">
 
-<div
-    class="section-box"
-    id="ficha"
->
+        <button class="lightbox-close"
+                onclick="closeLightbox()"
+                aria-label="Cerrar imagen">
+            [X]
+        </button>
 
-    <div class="section-header">
+        <img id="lightbox-image" src="" alt="Imagen ampliada">
 
-        :: 03 // FICHA TÉCNICA ::
-
-    </div>
-
-
-    <div class="section-content">
-
-        <table>
-
-            <tr>
-
-                <td>
-                    DIRECTOR
-                </td>
-
-                <td>
-                    Carlos Mario Velásquez Ferreira
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    GÉNERO
-                </td>
-
-                <td>
-                    Horror psicológico / Drama
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    DURACIÓN
-                </td>
-
-                <td>
-                    XX minutos
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    PAÍS
-                </td>
-
-                <td>
-                    Colombia
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    AÑO
-                </td>
-
-                <td>
-                    2026
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    FOTOGRAFÍA
-                </td>
-
-                <td>
-                    Por definir
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    MONTAJE
-                </td>
-
-                <td>
-                    Por definir
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>
-                    PRODUCCIÓN
-                </td>
-
-                <td>
-                    Por definir
-                </td>
-
-            </tr>
-
-        </table>
-
-    </div>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     SIDEBAR
-===================================================== -->
-
-<aside>
-
-
-<div class="side-box">
-
-    <div class="side-title">
-
-        :: NAVEGACIÓN ::
-
-    </div>
-
-
-    <a href="#inicio">
-        » Página principal
-    </a>
-
-
-    <a href="#sinopsis">
-        » Sinopsis
-    </a>
-
-
-    <a href="#pelicula">
-        » La película
-    </a>
-
-
-    <a href="#ficha">
-        » Ficha técnica
-    </a>
-
-
-    <a href="#contacto">
-        » Contacto
-    </a>
-
-</div>
-
-
-
-<div class="side-box">
-
-    <div class="side-title">
-
-        :: ESTADO DEL ARCHIVO ::
-
-    </div>
-
-
-    <div class="status">
-
-        <div class="status-light"></div>
-
-
-        <span>
-
-            ARCHIVO ONLINE
-
-            <br>
-
-            <small>
-                Última actualización:
-                06/10/2026
-            </small>
-
-        </span>
-
-    </div>
-
-</div>
-
-
-
-<div class="side-box">
-
-    <div class="side-title">
-
-        :: ESTADÍSTICAS ::
-
-    </div>
-
-
-    <div class="stats">
-
-        <div>
-
-            <span>
-                VISITANTES
-            </span>
-
-            <strong id="visitorCounter">
-                000421
-            </strong>
-
-        </div>
-
-
-        <div>
-
-            <span>
-                ARCHIVOS
-            </span>
-
-            <strong>
-                01
-            </strong>
-
-        </div>
-
-
-        <div>
-
-            <span>
-                VERSIÓN
-            </span>
-
-            <strong>
-                1.0
-            </strong>
-
-        </div>
-
-
-        <div>
-
-            <span>
-                RESOLUCIÓN
-            </span>
-
-            <strong>
-                1024×768
-            </strong>
-
+        <div class="lightbox-caption" id="lightbox-caption">
+            ARCHIVO VISUAL
         </div>
 
     </div>
 
 </div>
-
-
-
-<div class="side-box guestbook">
-
-    <div class="side-title">
-
-        :: LIBRO DE VISITAS ::
-
-    </div>
-
-
-    <p>
-
-        ¿Has estado aquí antes?
-
-    </p>
-
-
-    <button id="guestbookButton">
-
-        [ FIRMAR ARCHIVO ]
-
-    </button>
-
-</div>
-
-
-
-<div class="side-box">
-
-    <div class="side-title">
-
-        :: CLASIFICACIÓN ::
-
-    </div>
-
-
-    <div class="badge">
-
-        <span>
-            RECOMENDADO
-        </span>
-
-        <strong>
-            HORROR<br>
-            PSICOLÓGICO
-        </strong>
-
-    </div>
-
-
-    <p class="tiny">
-
-        Este sitio está diseñado
-        para una experiencia
-        óptima a 1024×768.
-
-    </p>
-
-</div>
-
-
-</aside>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     CONTACTO
-===================================================== -->
-
-<section
-    class="contact-section"
-    id="contacto"
->
-
-    <div class="section-header">
-
-        :: 04 // CONTACTO ::
-
-    </div>
-
-
-    <div class="contact-content">
-
-        <p>
-            Para información sobre el cortometraje:
-        </p>
-
-
-        <p class="email">
-            elumbral@ejemplo.com
-        </p>
-
-
-        <div class="social-links">
-
-            <a href="#">
-                [ FACEBOOK ]
-            </a>
-
-            <a href="#">
-                [ YOUTUBE ]
-            </a>
-
-            <a href="#">
-                [ INSTAGRAM ]
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div>
-
-        © 2026 EL UMBRAL —
-        TODOS LOS DERECHOS RESERVADOS
-
-    </div>
-
-
-    <div class="footer-line">
-
-        ---------------------------------------------
-
-    </div>
-
-
-    <div>
-
-        ARCHIVO DIGITAL // SITIO OFICIAL
-
-    </div>
-
-
-    <div class="footer-buttons">
-
-        <span>
-            HTML
-        </span>
-
-        <span>
-            CSS
-        </span>
-
-        <span>
-            1024×768
-        </span>
-
-        <span>
-            ONLINE
-        </span>
-
-    </div>
-
-</footer>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="modal"
->
-
-    <div class="modal-window">
-
-
-        <div class="window-title">
-
-            <span>
-                SISTEMA // MENSAJE
-            </span>
-
-
-            <button
-                id="closeModal"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="modal-content">
-
-            <p>
-                ARCHIVO ENCONTRADO.
-            </p>
-
-
-            <p>
-                El contenido todavía se encuentra
-                en proceso de recuperación.
-            </p>
-
-
-            <p>
-                Algunas cosas deberían permanecer
-                enterradas.
-            </p>
-
-
-            <button
-                id="modalOk"
-            >
-                [ ACEPTAR ]
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script>
 
+    // RELOJ
 
-/* =====================================================
-   RELOJ
-===================================================== */
+    function updateClock() {
 
-function updateClock() {
+        const now = new Date();
 
-    const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
 
-
-    const hours =
-        String(now.getHours())
-        .padStart(2, "0");
-
-
-    const minutes =
-        String(now.getMinutes())
-        .padStart(2, "0");
-
-
-    const seconds =
-        String(now.getSeconds())
-        .padStart(2, "0");
-
-
-    document.getElementById("clock").textContent =
-        hours + ":" +
-        minutes + ":" +
-        seconds;
-
-}
-
-
-setInterval(updateClock, 1000);
-
-updateClock();
-
-
-
-/* =====================================================
-   CONTADOR DE VISITAS
-===================================================== */
-
-let visits =
-    localStorage.getItem("elUmbralVisits");
-
-
-if (!visits) {
-
-    visits = 421;
-
-} else {
-
-    visits =
-        parseInt(visits) + 1;
-
-}
-
-
-localStorage.setItem(
-    "elUmbralVisits",
-    visits
-);
-
-
-document.getElementById(
-    "visitorCounter"
-).textContent =
-    String(visits).padStart(6, "0");
-
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-const modal =
-    document.getElementById("modal");
-
-
-const enterButton =
-    document.getElementById("enterButton");
-
-
-const guestbookButton =
-    document.getElementById("guestbookButton");
-
-
-const closeModal =
-    document.getElementById("closeModal");
-
-
-const modalOk =
-    document.getElementById("modalOk");
-
-
-
-function openModal() {
-
-    modal.classList.add("active");
-
-}
-
-
-function closeModalWindow() {
-
-    modal.classList.remove("active");
-
-}
-
-
-enterButton.addEventListener(
-    "click",
-    openModal
-);
-
-
-guestbookButton.addEventListener(
-    "click",
-    openModal
-);
-
-
-closeModal.addEventListener(
-    "click",
-    closeModalWindow
-);
-
-
-modalOk.addEventListener(
-    "click",
-    closeModalWindow
-);
-
-
-
-/* =====================================================
-   REPRODUCTOR FALSO
-===================================================== */
-
-const playButton =
-    document.getElementById("playButton");
-
-
-const progressBar =
-    document.getElementById("progressBar");
-
-
-const timeDisplay =
-    document.getElementById("timeDisplay");
-
-
-let playing = false;
-
-let progress = 0;
-
-let playerInterval;
-
-
-
-playButton.addEventListener(
-    "click",
-    function() {
-
-
-        if (!playing) {
-
-            playing = true;
-
-            playButton.textContent = "Ⅱ";
-
-
-            playerInterval =
-                setInterval(
-                    function() {
-
-
-                        progress += 0.5;
-
-
-                        if (progress >= 100) {
-
-                            progress = 0;
-
-                        }
-
-
-                        progressBar.style.width =
-                            progress + "%";
-
-
-                        const totalSeconds =
-                            Math.floor(
-                                progress * 0.6
-                            );
-
-
-                        const minutes =
-                            String(
-                                Math.floor(
-                                    totalSeconds / 60
-                                )
-                            ).padStart(2, "0");
-
-
-                        const seconds =
-                            String(
-                                totalSeconds % 60
-                            ).padStart(2, "0");
-
-
-                        timeDisplay.textContent =
-                            minutes +
-                            ":" +
-                            seconds;
-
-
-                    },
-                    100
-                );
-
-
-        } else {
-
-
-            playing = false;
-
-            playButton.textContent = "▶";
-
-            clearInterval(
-                playerInterval
-            );
-
-        }
+        document.getElementById("clock").textContent =
+            `${hours}:${minutes}:${seconds}`;
 
     }
-);
+
+    updateClock();
+    setInterval(updateClock, 1000);
 
 
-/* =====================================================
-   CERRAR MODAL HACIENDO CLICK AFUERA
-===================================================== */
+    // AÑO AUTOMÁTICO
 
-modal.addEventListener(
-    "click",
-    function(event) {
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
 
-        if (event.target === modal) {
 
-            closeModalWindow();
+    // GALERÍA: ABRIR IMAGEN
 
-        }
+    function openLightbox(image, caption) {
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        const lightboxCaption = document.getElementById("lightbox-caption");
+
+        lightboxImage.src = image;
+        lightboxCaption.textContent = caption;
+
+        lightbox.classList.add("active");
 
     }
-);
 
+
+    // GALERÍA: CERRAR IMAGEN
+
+    function closeLightbox() {
+
+        document.getElementById("lightbox").classList.remove("active");
+
+    }
+
+
+    // CERRAR AL HACER CLIC FUERA DE LA IMAGEN
+
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeLightbox();
+        }
+
+    });
+
+
+    // CERRAR CON LA TECLA ESCAPE
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+            closeLightbox();
+        }
+
+    });
 
 </script>
 
-
 </body>
 </html>
-```
